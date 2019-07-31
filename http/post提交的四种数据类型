@@ -1,0 +1,6 @@
+1、第一种:application/json
+{"input1":"XXX","input2":"OOO","remember":false}
+2、第二种：application/x-www-form-urlencoded,如果没有设置enctype属性，那么最终就会以application/x-www-form-urlencoded方式提交
+input1=xxx&input2=ooo&remember=false
+3、第三种：multipart/form-data这一种是表单格式的
+4、第四种：text/xml

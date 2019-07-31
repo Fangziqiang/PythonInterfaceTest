@@ -1,5 +1,7 @@
 eclipse.preferences.version=1
 encoding//http/http_test.py=utf-8
+encoding//http/login.py=utf-8
+encoding//http/order_list.py=utf-8
 encoding//http/requests_get.py=utf-8
 encoding//http/requests_pos.py=utf-8
 encoding//http/urllib_GET_test.py=utf-8
