@@ -1,4 +1,12 @@
 eclipse.preferences.version=1
+encoding//case/assert_test.py=utf-8
+encoding//case/run_case.py=utf-8
+encoding//case/unittest_case.py=utf-8
+encoding//case/unittest_case2.py=utf-8
+encoding//how_to_run_test_case/run_from_test_case_class.py=utf8
+encoding//how_to_run_test_case/run_suit.py=utf8
+encoding//how_to_run_test_case/test_case/test_add.py=utf8
+encoding//how_to_run_test_case/test_case/test_sub.py=utf8
 encoding//http/http_test.py=utf-8
 encoding//http/login.py=utf-8
 encoding//http/order_list.py=utf-8

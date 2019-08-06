@@ -1,0 +1,47 @@
+1、无条件跳过用例unittest.skip('')
+2、为真跳过用例unittest.skpiIf(3>2)
+3、主动标记为失败unittest.Failure('')
+4、用例失败后自动重跑的函数方法
+def log(n): 
+	def decorator(xingfangfa): 
+		def wrapper(*a,**w): 
+			for i in range(n): 
+				try: 
+					return xingfangfa(*a,**w) 
+				except AssertionError as err: 
+					print err 
+					raise AssertionError 
+			return wrapper 
+		return decorator
+5.主函数中启动测试套件有很多方法
+1.if __name__ =="__main__": 
+	suite = unittest.TestSuite() 
+	suite.addTest(TestCount(“test_add”)) 
+	runner = unittest.TextTestRunner() 
+	runner.run(suite) 
+2.suite = unittest.makeSuite(Text类名) 
+	runner = unittest.TextTestRunner() 
+	runner.run(suite) 
+3.def suite(suiten): 
+	suitea = suiten 
+		for i in range(0,3): 
+			suitea.addTest(TestNut(‘test_%s’%(i+1))) 
+			return suitea 
+if __name__ == "__main__": 
+	suiten = unittest.TestSuite() 
+	runner = unittest.TextTestRunner() 
+	runner.run(suite)
+6.每条用例如果断言失败，那么后面的代码就都不执行了，所以如果断言后面需要一些操作代码的话，最好放到下一条用例中 
+7.测试类可以很多，只要主函数中给suiten依次add即可，这样调试起来很方便
+
+suiten = unittest.makeSuite(Test_phonelogin) 
+suiten2= unittest.makeSuite(Test_emaillogin) 
+suiten.addTest(suiten2) 
+suiten.addTest(suiten3)
+
+8.引入hmltestrunner是一个好选择。但是代码中所有中文字符串前需要加u
+
+filename = ‘./new/登录页面测试.html’ 
+fp = file(filename, ‘wb’) 
+runner = HTMLTestRunner.HTMLTestRunner(fp, title=u’登录注册模块测试’, description=u’NUTapp用例执行报告’) 
+runner.run(suiten)

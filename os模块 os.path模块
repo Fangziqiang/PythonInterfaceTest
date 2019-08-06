@@ -1,0 +1,116 @@
+Pythos中调用操作系统的模块，提供对操作系统进行调用的接口
+API方法
+
+os.getcwd() 获取当前工作目录，即当前Python脚本工作的目录路径
+os.chdir('dirname') 改变当前脚本工作目录，相当于shell下cd
+os.curdir 返回当前目录'.'
+os.pardir 返回当前目录的父目录名
+os.makedirs(dirpath) 可生成多层递归目录
+
+os.makedirs('a\\b\\c')
+
+os.removedirs(dirpath) 若目录为空，则删除并且递归到上一级目录，若上一级目录也为空，则删除。以此类推
+os.mkdir('dirname') 生成单级目录
+os.rmdir('dirname') 删除单级空目录，若目录不为空则无法删除
+os.listdir('dirname') 列出指定目录下的所有文件和子目录
+os.remove(path)只能删除文件不能删除目录
+os.rename('dirname') 重命名文件/目录
+os.stat('path/filename') 获取文件/目录信息
+os.sep 输出操作系统特定的路径分隔符
+os.linesep 输出当前平台使用的行终止符
+os.pathsep 输出用于分割文件路径的字符串
+os.name 输出字符串指示当前使用平台
+
+win --- 'nt'
+Linux --- 'posix'
+
+
+os.system('command str') 运行shell命令 直接显示
+os.environ 获取系统环境变量
+os.path.abspath(path) 返回path规范化的绝对路径
+os.path.split(path) 将path分割成目录和文件名的二元组返回
+os.path.dirname(path) 返回path的目录，也就是split数组的第一个元素
+
+print(os.path.dirname('a'+sep+'b'+sep+'c'))
+# >>> a/b
+
+
+os.path.basename(path) 返回path最后的文件名
+os.path.exists(path) 如果path存在返回True如果Path不存在返回False
+os.path.isabs(path) 判断是否是绝对路径 如果是绝对路径返回True
+os.path.isfile(path) 判断是否是一个存在的文件，是一个存在的文件返回True如果不是返回False
+os.path.isdir(path) 如果path是一个存在的目录，返回True否则返回False
+os.path.join(path1[,path2[],...])将多个路径组合后返回
+os.path.getatime(path) 返回path所指文件或目录的最后存取时间
+os.path.getmtime(path) 返回path所指向的文件或者目录的最后修改时间
+
+os.path模块
+os.path模块用于以一种可移植的方式操作路径名称。由os模块导入
+
+abspath(path) 返回路径名称path，同时将当前的工作目录考虑在内
+
+path = '../pathon /foo'
+print(op.abspath(path))
+
+
+basename(path)
+返回路径名称path的基本名称,也就是说返回最后的名称
+
+path = '/Users/D9ing/PycharmProjects/python/PythonLesson/pathon'
+print(op.basename(path))
+>>>
+pathon
+
+
+commonprefix(list) 返回list中所有字符串的前缀中最长的字符串。如果list为空，将返回空字符串
+dirname(path) 返回路径名称path的目录名称
+
+path = '/Users/D9ing/PycharmProjects/python/PythonLesson/pathon'
+print(op.dirname(path))
+>>> 
+/Users/D9ing/PycharmProjects/python/PythonLesson
+
+
+exists(path) 如果path是现有路径返回True，如果path引用的是已经损坏的符号链接，返回False
+expanduser(path) 使用用户的主要目录替换 ‘~user’格式的路径名称
+expandvars(path) 扩展path中’$name‘或’${name}‘格式的环境变量。不符合规范或不存在的变量名称将保持不变
+getatime(path) 返回最后一次访问path的事件，返回值是从纪元开始的秒数。
+getctime(path) 在UNIX上返回的是最后一次修改path的事件。在windows上返回的是创建Path的事件
+getmtime(path) 返回最后一次修改path的时间，返回值是从纪元开始的秒数
+getsize(path) 返回path的大小，以字节为单位
+isabs(path) 如果path是绝对路径名称，返回True
+isfile(path) 如果path是普通文件，返回True
+isdir(path) 如果path是目录，返回True
+islink(path) 如果path引用的是符号链接，返回True
+ismount(path) 如果path是挂载点，返回True
+join(path1[,path2[,...]]) 将一个或多个路径组件智能地连接为一个路径名称。
+
+print(op.join('home', 'user', 'python'))
+home/user/python
+
+
+lexists(path) 如果path存在，返回True
+normcase(path) 标准化路径名称的大小写。在不区分大小写的文件系统上，把路径转换为小写字母，在windows上，把正斜杠转换为反斜杠
+normpath(path) 标准化路径名称，例如 将'A//B A/.B和‘A/foo/..’'都变为'A/B' 在windows上，把正斜杠转换为反斜杠
+realpath(path) 返回path的真实路径，并除去路径中的所有符号连接
+relpath(path[,start]) 返回从当前工作目录到path的一条相对路径。可以提供start来指定另一个起始目录
+samefile(path1,path2)如果path1和path2引用同一个文件或目录，返回True
+sameopenfile(fp1,fp2)如果打开的文件对象fp1和fp2引用同一个文件，返回True
+samestat(stat1,stat2) 如果fstat()、lstat()或stat()返回的stat元组和stat1和stat2引用同一个文件，则返回True
+split(path) 将path拆分为(head,taill)对，其中tail是最后一个路径名称的组件，而head是tail之前的内容。
+
+path = '/Users/D9ing/PycharmProjects/python/PythonLesson/pathon'
+print(op.split(path))
+>>>
+('/Users/D9ing/PycharmProjects/python/PythonLesson', 'pathon')
+
+
+splitdrive(path) 将path拆分为(drive,filename)对，其中drive是驱动器说明或空字符串，在没有驱动器说明的系统上，drive始终是空字符串
+
+path = '/Users/D9ing/PycharmProjects/python/PythonLesson/pathon'
+print(op.splitdrive(path))
+>>>
+('', '/Users/D9ing/PycharmProjects/python/PythonLesson/pathon')
+
+splitunc(path) 将路径名称拆分为(unc,rest)对，其中unc是挂载点，而rest是路径的余下部分
+
