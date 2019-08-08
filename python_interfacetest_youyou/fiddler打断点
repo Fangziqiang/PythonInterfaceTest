@@ -1,0 +1,43 @@
+1、全局断点：
+全局断点就是中断fiddler捕获的所有请求，设置步骤：rules->automatic breakpoint ->before requests
+打完断点后，会发现所有的请求都无法发出去了，这时候，点下Go按钮，就能走下一步了，找到需要修改的请求后，zai右侧打开的webforms里面就可以修改参数了
+取消全局断点：rules-> automatic breakpoint ->disabled
+
+2、单个断点
+请求前断点（before response)： bpu
+bpu https://passport.cnblogs.com/user/signin
+取消断点，在命令行输入： bpu 回车就可以了
+
+响应后断点（after requests）： bpafter
+bpafter https://passport.cnblogs.com/user/signin 
+取消断点，在命令行输入： bpafter 回车就可以了
+
+3、拦截来自某个网站所有请求
+bpu www.cnblogs.com
+
+4、命令行其它相关指令
+Bpafter， Bps, bpv, bpm, bpu
+这几个命令主要用于批量设置断点
+Bpafter xxx: 中断 URL 包含指定字符的全部 session 响应
+Bps xxx: 中断 HTTP 响应状态为指定字符的全部 session 响应
+Bpv xxx: 中断指定请求方式的全部 session 响应
+Bpm xxx: 中断指定请求方式的全部 session 响应 、、同于 bpv xxx
+Bpu xxx:与 bpafter 类似
+当这些命令没有加参数时，会清空所有设置了断点的 HTTP 请求。
+
+5、会话保存
+点左上角 File>Save>Selected Sessions>as Text，保存到电脑上就是文本格式的
+1.save-All Sessions :保存所有的会话，saz 文件
+2.save-Selected Session:保存选中的会话
+--in ArchiveZIP ：保存为 saz 文件
+--as Text ：以 txt 文件形式保存整个会话包括 Request 和 Response
+--as Text (Headers only) ：仅保存头部
+3.Request：保存请求
+--Entir Request:保存整个请求信息（headers 和 body）
+--Request Body:只保存请求 body 部分
+4.Response：保存返回
+--Entir Response:保存整个返回信息（headers 和 body）
+--Response Body:只保存返回 body 部分
+--and Open as Local File：保存 Response 信息，并打开文件
+
+

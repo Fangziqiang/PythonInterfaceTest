@@ -1,0 +1,10 @@
+URL：http://cn.python-requests.org/zh_CN/latest/
+
+开发哲学
+Requests 是以 PEP 20 的箴言为中心开发的
+
+Beautiful is better than ugly.(美丽优于丑陋)
+Explicit is better than implicit.(直白优于含蓄)
+Simple is better than complex.(简单优于复杂)
+Complex is better than complicated.(复杂优于繁琐)
+Readability counts.(可读性很重要)

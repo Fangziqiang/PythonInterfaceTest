@@ -1,0 +1,28 @@
+博客地址：https://blog.csdn.net/u011541946/article/details/77745924
+1.为什么需要Session和Cookie
+我们知道HTTP是一种无状态的响应。上一个请求和下一个请求没有任何关系。但是现实过程中，需要这些请求之间有关系。例如，你在首页登录，但是进入
+到列表页就显示没有登录，点击一个数据提示你还需要登录。为了解决这样问题，需要两个机制，那就是Session 和 Cookie
+
+2.Cookies机制原理
+浏览器第一次发送请求，没有带cookies，服务器收到之后，在数据库找，找到有相关权限。服务器就给出响应，并设置一个cookie。浏览器收到服务器发送过来的cookie，
+就开始解析cookie，并把这个cookie保存到本地。这样，以后浏览器每次发送请求，都带上cookie，服务器会对cookie进行解析，发送这个cookie是之前服务器设置的cookie，
+服务器就开始给浏览器发送HTTP响应，这样，一个完整的交互流程就走下来了。
+在requests中是这样实现cooie的：
+发送请求的时候带上cookie：
+cookies=dic(c='xxxx')
+requests.get(url,cookies=cookies)
+r = requests.get(url)
+r.cookies['cookiename']
+
+
+3.Session机制原理
+首先浏览器发送一个HTTP请求，服务器端完成认证之后，会对这个会话进行保存，也就是会存储Session，这个可能存在服务上，可能存在数据库或者redis上。服务器给出一个响应，
+带上cookies-session-id的信息。浏览器拿到响应之后，也会保存到本地，但是这个时候cookie很小，可能只有一个id。浏览器开始发送HTTP请求，带上cookie，服务器上解析sessionid，
+给出HTTP响应。
+
+4.Session和Cookie两者的区别
+1）、cookie数据存放在客户的浏览器上，session数据放在服务器上
+2）、cookie不是很安全，别人可以分析存放在本地的COOKIE并进行COOKIE欺骗，考虑到安全应当使用session
+3）、session会在一定时间内保存在服务器上。当访问增多，会比较占用你服务器的性能，考虑到减轻服务器性能方面，应当使用COOKIE
+4）、单个cookie在客户端的限制是3K，就是说一个站点在客户端存放的COOKIE不能大于3K。
+--------------------- 

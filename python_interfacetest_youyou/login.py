@@ -15,7 +15,7 @@ headers ={"charset":"utf-8",
 payload = {"phone":"17610831883","password":"111111"}
 r = requests.post(login_url,json=payload,headers=headers,verify=False)
 
-# post data格式 这个接口使用的是json格式
+# post data格式
 # d = {"phone":"17610831883","password":"111111"}
 # r = requests.post(login_url,data=d,headers=headers,verify=False)
 
