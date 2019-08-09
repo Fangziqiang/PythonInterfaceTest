@@ -53,10 +53,6 @@ class json_test(unittest.TestCase):
         io=StringIO()
         json.dumps(['streamingAPI'],io)
         io.getvalue()
-
-
-
-
     
 suite= unittest.TestSuite()
 suite.addTest(json_test("test01"))
