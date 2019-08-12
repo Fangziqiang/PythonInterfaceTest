@@ -6,19 +6,10 @@ from _random import Random
 
 class json_test2(unittest.TestCase):
     @classmethod
-    def setUpClass(cls):
+    def setUpClass(self):
         print("所有case执行之前的前置")
-    
-    @classmethod
-    def tearDownClass(cls):
-        print("所有case执行之后的后置")
-    
-    def setUp(self):
-        print("这个是case的前置条件")
-       
-    def get_confirme_order(self):
-        url="http://192.168.10.6:8080/user/orders"
-        h={
+        self.url="http://192.168.10.6:8080/user/orders"
+        self.h={
                  "Accept": "application/json",
                  "Accept-Encoding": "gzip, deflate",
                  "Accept-Language": "zh-CN,zh",
@@ -28,12 +19,24 @@ class json_test2(unittest.TestCase):
                  "User-Agent": "Mozilla/5.0 (Linux; U; Android 5.1.1; zh-cn; SM-G955F Build/JLS36C) AppleWebKit/533.1 (KHTML, like Gecko) Version/5.0 Mobile Safari/533.1",
                  "Host": "192.168.10.6:8080"
                  }
-        par={"status":"confirmed","owner":"16d0a4b0dcd411e8b2e187bf6b98e5cd","page":"1"}
-
+        self.par={"status":"confirmed","owner":"16d0a4b0dcd411e8b2e187bf6b98e5cd","page":"1"}
+    
+    @classmethod
+    def tearDownClass(self):
+        print("所有case执行之后的后置")
+    
+    def setUp(self):
+        print("这个是case的前置条件")
+       
+    def get_confirme_order(self):
+        
 #         print ("start")
-        r=requests.get(url,headers=h,params=par)
+        r=requests.get(self.url,headers=self.h,params=self.par)
 #         print(r.text)
         print (r.status_code)
+        
+        self.assertEqual(r.status_code, "300", msg="失败原因：%s != 300"%(r.status_code))
+        
 #         print (r.content)
         print("---------------json解析---------------------")
         result=r.json()
@@ -42,7 +45,7 @@ class json_test2(unittest.TestCase):
 
         print ("-------------orders-----------")
         print orders
-        print ("-------------orders最上面一个-----------")
+        print ("-------------orders列表最上面一个-----------")
         print orders[0]     #获取orders里面最上面一个
         print ("-------------goods-----------")
         print orders[0]["goods"]    #获取goods列表
@@ -54,6 +57,7 @@ class json_test2(unittest.TestCase):
         
     def tearDown(self):
         print("这个是case的后置条件")
+        
     
     
         
