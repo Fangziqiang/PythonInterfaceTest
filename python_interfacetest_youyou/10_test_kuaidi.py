@@ -1,6 +1,9 @@
 #coding=utf-8
 import unittest
 import requests
+import urllib3
+# 禁用安全警告
+urllib3.disable_warnings()
 
 class test_kuaidi(unittest.TestCase):
     def setUp(self):

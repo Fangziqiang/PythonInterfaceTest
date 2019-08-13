@@ -6,7 +6,7 @@ def all_case():
     #待执行用例的目录
     case_dir="E:\\eclipse\\workspace\\PythonInterfaceTest\\pau\\case"
     testcase=unittest.TestSuite()
-    discover = unittest.defaultTestLoader.discover(case_dir, pattern="test*.py", top_level_dir=None)
+    discover = unittest.defaultTestLoader.discover(case_dir, pattern="test_*.py", top_level_dir=None)
 #     discover筛选出来的用例，循环添加到测试套件中
 #     for test_suit in discover:
 #         for test_case in test_suit:

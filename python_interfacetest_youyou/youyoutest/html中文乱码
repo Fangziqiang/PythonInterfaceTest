@@ -1,0 +1,4 @@
+修改HTMLTestRunner.py中这两处，修改为utf-8编码
+
+uo = o.decode('utf-8')
+ue = e.decode('utf-8')
