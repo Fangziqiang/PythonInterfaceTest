@@ -1,0 +1,8 @@
+cmp(x,y)    	比较两个值
+len(seq)		返回序列的长度
+list(seq)		把序列转换成列表
+max(args)		返回序列或者参数集合中的最大值
+min(args)		返回序列或者参数集合中的最小值
+reversed(seq)	对序列进行反向迭代
+sorted(seq)		返回已排序的包含seq所有元素的列表
+tuple(seq)		把序列转换成元组
