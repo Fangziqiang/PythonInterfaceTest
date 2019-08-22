@@ -10,7 +10,7 @@ from StringIO import  StringIO
 # python的数据类，经过encode成json的数据类型，对应的表：
 # ---PYTHON---     ---JSON---
 # dict---              object
-# list,tuple           array
+# list,tuple(元组)      array
 # str,unicode          string
 # int,long,float       number
 # True                 true
