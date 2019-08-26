@@ -23,5 +23,5 @@ if __name__ == "__main__":
                                                   title='测试报告',
                                                   description='这是第一次执行用例的测试报告！',
                                                   verbosity=2,
-                                                  tester='C大调')
+                                                  tester='fangziqiang')
         runner.run(suite)
