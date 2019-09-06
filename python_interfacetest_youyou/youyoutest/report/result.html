@@ -189,9 +189,9 @@ function showOutput(id, name) {
 
 <div class='heading'>
 <h1>这是我的接口自动化测试报告</h1>
-<p class='attribute'><strong>Start Time:</strong> 2019-08-13 13:47:54</p>
-<p class='attribute'><strong>Duration:</strong> 0:00:00</p>
-<p class='attribute'><strong>Status:</strong> none</p>
+<p class='attribute'><strong>Start Time:</strong> 2019-09-06 10:05:19</p>
+<p class='attribute'><strong>Duration:</strong> 0:00:00.008000</p>
+<p class='attribute'><strong>Status:</strong> Pass 3 Failure 1</p>
 
 <p class='description'>用例执行情况</p>
 </div>
@@ -221,11 +221,140 @@ function showOutput(id, name) {
     <td>View</td>
 </tr>
 
+<tr class='failClass'>
+    <td>testcase.baidu1.test_01.Unittest_case</td>
+    <td>2</td>
+    <td>1</td>
+    <td>1</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c1',2)">Detail</a></td>
+</tr>
+
+<tr id='ft1.1' class='none'>
+    <td class='failCase'><div class='testcase'>testfirst01: 测试登录用例，账号：xx 密码 123456</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.1')" >
+        fail</a>
+
+    <div id='div_ft1.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+ft1.1: 这个是case的前置条件
+这个是第一条case
+Traceback (most recent call last):
+  File "E:\eclipse\workspace\PythonInterfaceTest\python_interfacetest_youyou\youyoutest\testcase\baidu1\test_01.py", line 24, in testfirst01
+    self.assertEqual(3, 4)
+AssertionError: 3 != 4
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt1.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>testfirst02: 测试登搜索用例，关键词：xxx</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.2')" >
+        pass</a>
+
+    <div id='div_pt1.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt1.2: 这个是case的前置条件
+这个是第二条case
+这个是case的后置条件
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr class='passClass'>
+    <td>testcase.blog1.test_02.Unittest_case2</td>
+    <td>2</td>
+    <td>2</td>
+    <td>0</td>
+    <td>0</td>
+    <td><a href="javascript:showClassDetail('c2',2)">Detail</a></td>
+</tr>
+
+<tr id='pt2.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>testfirst02</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.1')" >
+        pass</a>
+
+    <div id='div_pt2.1' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.1').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.1: 这个是case的前置条件
+这个是第二条case
+这个是case的后置条件
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt2.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>testfirst03</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.2')" >
+        pass</a>
+
+    <div id='div_pt2.2' class="popup_window">
+        <div style='text-align: right; color:red;cursor:pointer'>
+        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.2').style.display = 'none' " >
+           [x]</a>
+        </div>
+        <pre>
+        
+pt2.2: 这个是case的前置条件
+这个是第3条case
+这个是case的后置条件
+
+
+        </pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
 <tr id='total_row'>
     <td>Total</td>
-    <td>0</td>
-    <td>0</td>
-    <td>0</td>
+    <td>4</td>
+    <td>3</td>
+    <td>1</td>
     <td>0</td>
     <td>&nbsp;</td>
 </tr>

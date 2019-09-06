@@ -3,6 +3,7 @@ import requests
 import json
 import unittest
 from StringIO import  StringIO
+import pysnooper
 
 # Encode (python->json)   
 #  json.dumps（）
@@ -33,6 +34,7 @@ from StringIO import  StringIO
 # null                 None                 
 # ------------------------------
 # 83页
+
 class json_test(unittest.TestCase):
     def test01(self):
         s1=json.dumps(['foo',{'bar':('baz',None,1.0,2)}])
@@ -49,10 +51,16 @@ class json_test(unittest.TestCase):
     def test05(self):
         print (json.dumps({"c": 0, "b": 0, "a": 0}, sort_keys=True))
 
+    @pysnooper.snoop()
     def test06(self):
         io=StringIO()
-        json.dumps(['streamingAPI'],io)
-        io.getvalue()
+        io.write("some words")
+        # json.dumps(['streamingAPI'],io)
+        test = json.dumps(['streamingAPI'],io)
+        print test
+        print(io.getvalue())
+    def test07(self):
+        print(json.dumps({"c": 3, "a": 1, "b": 2}, sort_keys=True))
     
 suite= unittest.TestSuite()
 suite.addTest(json_test("test01"))
@@ -61,6 +69,7 @@ suite.addTest(json_test("test03"))
 suite.addTest(json_test("test04"))
 suite.addTest(json_test("test05"))
 suite.addTest(json_test("test06"))
+suite.addTest(json_test("test07"))
 
 if __name__=="__main__":
     #运行测试用例方法一
