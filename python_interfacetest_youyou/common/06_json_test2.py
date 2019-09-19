@@ -8,12 +8,12 @@ class json_test2(unittest.TestCase):
     @classmethod
     def setUpClass(self):
         print("所有case执行之前的前置")
-        self.url="http://192.168.10.6:8080/user/orders"
+        self.url="http://192.168.10.6:8080/owner/v1/orders/list"
         self.h={
                  "Accept": "application/json",
                  "Accept-Encoding": "gzip, deflate",
                  "Accept-Language": "zh-CN,zh",
-                 "Authorization": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJyYW5kb21LZXkiOiJ5OWJtZTQiLCJzdWIiOiIxMzI3MTU3MDUwMSIsImV4cCI6MTU2NTc2NTIyMiwiZGV2aWNlSWQiOiIxMTUxNjc2MDA1MTA3MTA5ODg5MTU2MzQxNTkzMTg3N3RuayIsImlhdCI6MTU2NTE2MDQyMn0.Jx4nnrm_eZFYvtULgHmxxpRLCRzPlTxxDarDwnREMFWflrCssWS0mymQcesEiY8vo_Nh7T7cm4a-zN3gKo3U1A",
+                 "Authorization": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJkZXZpY2VUeXBlIjoid3giLCJyYW5kb21LZXkiOiJkYnh6OTUiLCJzdWIiOiIxMTQ5MjEzOTYxNzA3NTg5NjM0MTU2MjgyODkzNHh4bXZpeSIsImV4cCI6MTU2OTQ4NTY5MSwiZGV2aWNlSWQiOiIxMTUyMDM3NzQ1NjE1NDQxOTIyMTU2MzUwMjE3N2UwdHdiMyIsImlhdCI6MTU2ODg4MDg5MX0._onKTr17YfNhBAeYGbGbrMvwrvgDAzZNbpKtIdgMaMETlTFiyr6aoNkLbuAWiumg4v7UpkMucclE4ztCuybF5w",
                  "Connection": "keep-alive",
                  "Content-Type": "application/x-www-form-urlencoded; charset=utf-8",
                  "User-Agent": "Mozilla/5.0 (Linux; U; Android 5.1.1; zh-cn; SM-G955F Build/JLS36C) AppleWebKit/533.1 (KHTML, like Gecko) Version/5.0 Mobile Safari/533.1",
@@ -32,23 +32,25 @@ class json_test2(unittest.TestCase):
         
 #         print ("start")
         r=requests.get(self.url,headers=self.h,params=self.par)
-#         print(r.text)
+        print(r.text)
         print (r.status_code)
         
-        self.assertEqual(r.status_code, "300", msg="失败原因：%s != 300"%(r.status_code))
+#         self.assertEqual(r.status_code, "200", msg="失败原因：%s != 200"%(r.status_code))  # code码不能为字符串，不能加引号
+        self.assertEqual(r.status_code, 200, msg="失败原因：%s != 200"%(r.status_code))
         
 #         print (r.content)
         print("---------------json解析---------------------")
         result=r.json()
 #         获取orders里面的内容
-        orders=result["orders"]
+        orders=result["data"]
+        
 
         print ("-------------orders-----------")
         print orders
         print ("-------------orders列表最上面一个-----------")
         print orders[0]     #获取orders里面最上面一个
         print ("-------------goods-----------")
-        print orders[0]["goods"]    #获取goods列表
+        print orders[0]["goodsList"]    #获取goods列表
         print orders[0]["phone"]
         
         for i in range(len(orders)):

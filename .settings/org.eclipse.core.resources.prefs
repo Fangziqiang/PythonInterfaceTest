@@ -44,6 +44,7 @@ encoding//python_interfacetest_youyou/common/20_win32com.py=utf-8
 encoding//python_interfacetest_youyou/common/21_pysnooper.py=utf-8
 encoding//python_interfacetest_youyou/common/21_pysnooper2.py=utf-8
 encoding//python_interfacetest_youyou/common/23_getTime.py=utf-8
+encoding//python_interfacetest_youyou/common/24_decorator.py=utf-8
 encoding//python_interfacetest_youyou/common/os_path_test.py=utf-8
 encoding//python_interfacetest_youyou/common/pymysqlTest/deleteTest.py=utf-8
 encoding//python_interfacetest_youyou/common/pymysqlTest/executeMoreSql.py=utf-8
